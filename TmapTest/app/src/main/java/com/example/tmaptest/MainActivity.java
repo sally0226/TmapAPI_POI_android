@@ -34,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerViewAdapter adapter;
     private Handler handler = new Handler(Looper.getMainLooper());
     private Runnable workRunnable;
-    private final long DELAY = 500;
 
 
     @Override
@@ -42,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         TMapView tMapView = new TMapView(this);
-        tMapView.setSKTMapApiKey("l7xx4620fe9b1c2445dda41257f430567fb2");
+        tMapView.setSKTMapApiKey("Tmap API key 넣기");
 
         layoutInit();
 
