@@ -9,13 +9,16 @@ https://github.com/pennya/SearchView/blob/master/app/src/main/java/com/example/k
 https://webnautes.tistory.com/1214
 - androidx.recyclerview.widget.RecyclerView를 어떻게 사용하면 좋을지 참고하였다. 
 
-#코드 설명
+코드 설명
 MainActivity.java
 - app의 메인 액티비티이다
+
 PosItem.java
 - 검색된 장소 하나하나를 담는 class
+
 RecyclerViewAdapter.java
 - RecyclerView의 Adapter 이다.
+
 TmapPOI.java
 - TmapAPI를 호출하고 결과를 받아오는 class
 
