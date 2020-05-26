@@ -19,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerViewAdapter adapter;
     private Handler handler = new Handler(Looper.getMainLooper());
     private Runnable workRunnable;
-    private final long DELAY = 500;
 
 
     @Override
