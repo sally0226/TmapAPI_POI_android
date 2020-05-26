@@ -1,13 +1,7 @@
 package com.example.tmaptest;
 
-import android.content.Context;
-import android.util.Log;
-
 import com.skt.Tmap.TMapData;
 import com.skt.Tmap.TMapPOIItem;
-import com.skt.Tmap.TMapView;
-
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
@@ -20,18 +14,6 @@ public class TmapPOI  {
         this.mAdapter = adapter;
         mListData = new ArrayList<PosItem>();
     }
-    /*
-    @Override
-    protected ArrayList<PosItem> doInBackground(String... word) {
-        return getAutoComplete(word[0]);
-    }
-
-    @Override
-    protected void onPostExecute(ArrayList<PosItem> autoCompleteItems) {
-        mAdapter.setData(autoCompleteItems);
-        mAdapter.notifyDataSetChanged();
-        System.out.println("notifyDataSetChanged() 완료");
-    }*/
 
     public void getAutoComplete(String word) throws InterruptedException {
 
@@ -44,11 +26,9 @@ public class TmapPOI  {
                 //long beforeTime = System.currentTimeMillis();
                 mListData.clear();
                 if (poiItem.size()==0){
-
                     mListData.add(new PosItem("결과가 없습니다",null,null));
                 }
                 for(int i = 0; i < poiItem.size(); i++) {
-
                     TMapPOIItem item = (TMapPOIItem) poiItem.get(i);
                     /*Log.d("POI Name: ", item.getPOIName().toString() + ", " +
                             "Address: " + item.getPOIAddress().replace("null", "")  + ", " +
@@ -61,7 +41,7 @@ public class TmapPOI  {
                 System.out.println("시간차이(ms) : "+secDiffTime);*/
             }
         }); //검색결과가 0개인경우,, 따로 처리를 해줘야하는지 확인해보기
-        TimeUnit.MILLISECONDS.sleep(500);
+        TimeUnit.MILLISECONDS.sleep(400);
         mAdapter.setData(mListData);
         mAdapter.notifyDataSetChanged();
 

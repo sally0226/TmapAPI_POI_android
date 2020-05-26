@@ -1,6 +1,6 @@
 package com.example.tmaptest;
 
-import android.content.Context;
+import android.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,11 +8,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.skt.Tmap.TMapView;
-
 import java.util.ArrayList;
-import java.util.concurrent.ExecutionException;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.CustomViewHolder> {
 
@@ -24,9 +20,31 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         public CustomViewHolder(View itemView) {
             super(itemView);
+            itemView.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View v) {
+                    int pos = getAdapterPosition() ;
+                    if (pos != RecyclerView.NO_POSITION) {
+                        PosItem clicked = itemLists.get(pos);
+                        String[] splited =clicked.getAddress().toString().split(" ");
+                        String add1=splited[0]; //도,시
+                        String add2=splited[1]; //시군구
+
+                        //intent 해서 SePosSetting화면으로 넘겨줘야 할듯
+
+                        //일단 AlterDialog로 선택된 장소의 내용 확인
+                        AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
+                        builder.setTitle("선택된 장소 :"+Integer.toString(pos)).setMessage(add1+" "+add2);
+                        AlertDialog alertDialog = builder.create();
+                        alertDialog.show();
+                    }
+                }
+
+            });
             title = (TextView) itemView.findViewById(R.id.item_title);
             address = (TextView) itemView.findViewById(R.id.item_address);
         }
+
     }
 
 
@@ -42,7 +60,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         holder.title.setText(itemLists.get(position).getTitle());
         holder.address.setText(itemLists.get(position).getAddress());
-
 
     }
 

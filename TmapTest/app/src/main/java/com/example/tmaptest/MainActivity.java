@@ -4,29 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
-import android.view.View;
 import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.Toast;
-
-import com.skt.Tmap.TMapData;
-import com.skt.Tmap.TMapPOIItem;
-import com.skt.Tmap.TMapTapi;
 import com.skt.Tmap.TMapView;
-
-import org.xml.sax.SAXException;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-
-import javax.xml.parsers.ParserConfigurationException;
 
 public class MainActivity extends AppCompatActivity {
     private EditText form;
@@ -42,10 +27,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         TMapView tMapView = new TMapView(this);
-        tMapView.setSKTMapApiKey("l7xx4620fe9b1c2445dda41257f430567fb2");
+        tMapView.setSKTMapApiKey("TmapAPI key");
 
         layoutInit();
-
         /*
         //LinearLayout linearLayoutTmap = (LinearLayout)findViewById(R.id.linearLayoutTmap);
         TMapView tMapView = new TMapView(this);
@@ -105,4 +89,5 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
 
     }
+
 }
